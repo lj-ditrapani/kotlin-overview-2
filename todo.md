@@ -1,4 +1,3 @@
-- add
 - done
 - list
 - colorize output
