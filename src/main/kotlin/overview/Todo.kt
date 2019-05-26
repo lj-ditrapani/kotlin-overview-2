@@ -1,8 +1,8 @@
 package overview
 
 sealed class Result
-object Exit: Result()
-data class Continue(val output: Output): Result()
+object Exit : Result()
+data class Continue(val output: Output) : Result()
 
 enum class State {
     TODO, DONE
