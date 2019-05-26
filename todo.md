@@ -1,4 +1,3 @@
-- done
 - list
 - colorize output
 - tests
