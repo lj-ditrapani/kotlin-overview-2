@@ -1,5 +1,2 @@
-- readme instructions
-    - link to overview 1
-    - vise versa
 - tests
 - test coverage for kotlin?
