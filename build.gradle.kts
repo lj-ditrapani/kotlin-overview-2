@@ -19,6 +19,9 @@ application {
     mainClassName = "overview.MainKt"
 }
 
+val run: JavaExec by tasks
+run.standardInput = System.`in`
+
 tasks.test {
     testLogging {
         events("passed", "started", "failed", "skipped")
