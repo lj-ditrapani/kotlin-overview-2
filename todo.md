@@ -1,2 +1,2 @@
-- tests
+- refactor tests (checking lists)
 - add more notes to README; see typescript-overview notes

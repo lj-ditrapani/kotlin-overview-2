@@ -72,7 +72,57 @@ class TodoTest {
         }
     }
 
-    class `done command`
+    class `done command` {
+        @Test fun `it marks an item as done and returns Result(noop, continue)`() {
+            val todo = Todo()
+            todo.dispatch("add wash car")
+            val doneResult = todo.dispatch("done 1")
+            assertEquals(Continue(Noop), doneResult)
+            assertEquals(
+                Continue(ListItems(mutableListOf(Item("wash car", State.DONE)))),
+                todo.dispatch("list")
+            )
+        }
+
+        val errorMsg =
+            "Done command must have space after done with " +
+                "a valid index that follows.\nExample: done 3"
+
+        @Test fun `trims whitespace around index`() {
+            val todo = Todo()
+            todo.dispatch("add wash car")
+            val doneResult = todo.dispatch("done   \t1\t  ")
+            assertEquals(doneResult, Continue(Noop))
+            assertEquals(
+                Continue(ListItems(mutableListOf(Item("wash car", State.DONE)))),
+                todo.dispatch("list")
+            )
+        }
+
+        @Test fun `returns an Error if index is out of bounds`() {
+            val todo = Todo()
+            val result = todo.dispatch("done 1")
+            assertEquals(Continue(Error(errorMsg)), result)
+        }
+
+        @Test fun `returns an Error if the index cannot be parsed`() {
+            val todo = Todo()
+            val result = todo.dispatch("done XIV")
+            assertEquals(Continue(Error(errorMsg)), result)
+        }
+
+        @Test fun `returns an Error if the index is missing`() {
+            val todo = Todo()
+            val result = todo.dispatch("done")
+            assertEquals(Continue(Error(errorMsg)), result)
+        }
+
+        @Test fun `returns an Error if there is only whitespace`() {
+            val todo = Todo()
+            val result = todo.dispatch("done  \t ")
+            assertEquals(Continue(Error(errorMsg)), result)
+        }
+    }
 
     @Test fun `list command displays the list of items`() {
         val todo = Todo()
