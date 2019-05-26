@@ -16,7 +16,7 @@ dependencies {
 }
 
 application {
-    mainClassName = "overview.AppKt"
+    mainClassName = "overview.MainKt"
 }
 
 tasks.test {
