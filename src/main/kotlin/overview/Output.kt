@@ -46,12 +46,15 @@ data class Error(val err: String) : Output() {
 data class ListItems(val list: MutableList<Item>) : Output() {
     override fun display() {
         list.forEachIndexed { index, item ->
-            if (item.state == State.TODO) {
-                val message = colorize(Color.GREEN, item.description)
-                println("${index + 1} $message")
-            } else {
-                val message = colorize(Color.BLUE, item.description)
-                println("${index + 1} $message (done)")
+            when (item.state) {
+                State.TODO -> {
+                    val message = colorize(Color.GREEN, item.description)
+                    println("${index + 1} $message")
+                }
+                State.DONE -> {
+                    val message = colorize(Color.BLUE, item.description)
+                    println("${index + 1} $message (done)")
+                }
             }
         }
     }
