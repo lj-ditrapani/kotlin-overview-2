@@ -1,0 +1,6 @@
+- add
+- done
+- list
+- colorize output
+- tests
+- test covarge for kotlin?
