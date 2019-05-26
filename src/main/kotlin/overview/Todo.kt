@@ -10,26 +10,39 @@ enum class State {
 
 data class Item(val description: String, val state: State)
 
+sealed class Command {
+    abstract val firstWord: String
+}
+data class NoArgCommand(override val firstWord: String): Command()
+data class CommandWithArg(override val firstWord: String, val rest: String): Command()
+
 class Todo {
     private val list = mutableListOf<Item>()
 
-    fun dispatch(command: String): Result {
-        val c = command.trim()
-        return when (firstWord(c)) {
+    fun dispatch(line: String): Result {
+        val command = parse(line)
+        return when (command.firstWord) {
             "help" -> Continue(Help)
-            "list" -> Continue(List(list))
-            "add" -> Continue(add(c))
-            "done" -> Continue(done(c))
+            "list" -> Continue(ListItems(list))
+            "add" -> Continue(add(command))
+            "done" -> Continue(done(command))
             "quit" -> Exit
             else -> Continue(Error(
-                    "I do not understand your command.  Enter help to display available commands."
+                    "I do not understand your command.  " +
+                    "Enter help to display available commands."
             ))
         }
     }
 
-    private fun add(line: String): Output = Noop
+    private fun add(command: Command): Output = Noop
 
-    private fun done(line: String): Output = Noop
+    private fun done(command: Command): Output = Noop
 
-    private fun firstWord(line: String): String = line.split(' ')[0]
+    private fun parse(line: String): Command {
+        val parts = line.trim().split(' ', limit = 2)
+        return when (parts.size) {
+            2 -> CommandWithArg(parts[0], parts[1])
+            else -> NoArgCommand(parts[0])
+        }
+    }
 }

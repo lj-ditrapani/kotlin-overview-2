@@ -29,7 +29,7 @@ data class Error(val err: String) : Output() {
     }
 }
 
-data class List(val list: MutableList<Item>) : Output() {
+data class ListItems(val list: MutableList<Item>) : Output() {
     override fun display() {
         println(list)
     }

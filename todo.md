@@ -3,4 +3,7 @@
 - list
 - colorize output
 - tests
-- test covarge for kotlin?
+- test coverage for kotlin?
+- readme instructions
+    - link to overview 1
+    - vise versa
