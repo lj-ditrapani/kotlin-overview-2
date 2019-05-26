@@ -39,6 +39,11 @@ Run tests
 
     ./gradlew test
 
+Run test coverage report
+
+    ./gradlew test jacocoTestReport
+    firefox build/reports/jacoco/test/html/overview/index.html
+
 Run tests and static analysis
 
     ./gradlew check
@@ -55,10 +60,7 @@ Create zip and tar application files under build/distributions/
 
     ./gradlew assembleDist
 
-Unzips dist files into build/install/.
+Package, install and run artifact
 
-    ./gradlew installDist
-
-Run main
-
-    ./build/install/kotlin-overview-2/bin/kotlin-overview-2
+    ./gradlew assembleDist installDist && \
+        ./build/install/kotlin-overview-2/bin/kotlin-overview-2

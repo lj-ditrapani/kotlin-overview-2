@@ -1,3 +1,2 @@
 - tests
-- test coverage for kotlin?
 - add more notes to README; see typescript-overview notes

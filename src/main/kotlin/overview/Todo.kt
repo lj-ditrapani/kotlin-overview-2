@@ -54,8 +54,8 @@ class Todo {
         is NoArgCommand -> error
         is CommandWithArg -> {
             val number: Int? = command.arg.toIntOrNull()
-            val item: Item? = number?.let { num -> list.getOrNull(num - 1) }
-            val noop: Output? = item?.let { item ->
+            val maybeItem: Item? = number?.let { num -> list.getOrNull(num - 1) }
+            val noop: Output? = maybeItem?.let { item ->
                 item.state = State.DONE
                 Noop
             }
