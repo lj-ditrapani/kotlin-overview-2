@@ -1,6 +1,6 @@
-- colorize output
-- tests
-- test coverage for kotlin?
+- compare with typescript version (colors/spacing)
 - readme instructions
     - link to overview 1
     - vise versa
+- tests
+- test coverage for kotlin?
