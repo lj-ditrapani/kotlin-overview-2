@@ -1,6 +1,6 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm").version("1.3.31")
-    id("application")
+    kotlin("jvm").version("1.3.31")
+    application
     id("org.jlleitschuh.gradle.ktlint").version("8.0.0")
     id("io.gitlab.arturbosch.detekt").version("1.0.0-RC14")
 }
@@ -15,9 +15,11 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 }
 
-mainClassName = "overview04.MainKt"
+application {
+    mainClassName = "overview.AppKt"
+}
 
-test {
+tasks.test {
     testLogging {
         events("passed", "started", "failed", "skipped")
     }
