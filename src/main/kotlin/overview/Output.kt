@@ -33,7 +33,7 @@ object Help : Output() {
 
 object Noop : Output() {
     override fun display() {
-        return
+        return Unit
     }
 }
 
