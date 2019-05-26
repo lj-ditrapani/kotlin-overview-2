@@ -1,4 +1,3 @@
-- list
 - colorize output
 - tests
 - test coverage for kotlin?
