@@ -6,7 +6,7 @@ fun main() {
     loop(todo)
 }
 
-fun loop(todo: Todo) {
+tailrec fun loop(todo: Todo) {
     print("Enter a command. Enter help to list available commands: ")
     val input = readLine()!!
     val result = todo.dispatch(input)
