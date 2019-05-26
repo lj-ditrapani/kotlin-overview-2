@@ -21,7 +21,7 @@ sealed class Output {
 object Help : Output() {
     override fun display() {
         println(colorize(Color.YELLOW, """
-    Available commands:
+        Available commands:
         help                              Displays this help
         list                              Display the todo list
         add <todo item description>       Adds the time to the todo list

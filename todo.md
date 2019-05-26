@@ -1,4 +1,3 @@
-- compare with typescript version (colors/spacing)
 - readme instructions
     - link to overview 1
     - vise versa

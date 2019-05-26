@@ -1,12 +1,13 @@
 package overview
 
 fun main() {
+    println("\nTodo list\n")
     val todo = Todo()
     loop(todo)
 }
 
 fun loop(todo: Todo) {
-    println("Enter a command. Enter help to list available commands: ")
+    print("Enter a command. Enter help to list available commands: ")
     val input = readLine()!!
     val result = todo.dispatch(input)
     when (result) {
