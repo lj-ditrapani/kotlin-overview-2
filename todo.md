@@ -1,2 +1,8 @@
-- test colorize
 - add more notes to README; see typescript-overview notes
+- To test more:
+    - Output.display -> Output.toString
+    - printing only happens in readEvalPrintLoop
+        - can now test all Output classes
+    - create ITodo; program against it
+    - could inject ITodo, IPrinter and IInput to main loop
+        - can now test main readEvalPrintLoop
