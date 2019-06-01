@@ -1,6 +1,6 @@
 - add more notes to README; see typescript-overview notes
 - To test more:
-    - Output.display -> Output.toString
+    - Output.display -> Output.asString (returns String?)
     - printing only happens in readEvalPrintLoop
         - can now test all Output classes
     - create ITodo; program against it
