@@ -20,14 +20,18 @@ sealed class Output {
 
 object Help : Output() {
     override fun display() {
-        println(colorize(Color.YELLOW, """
+        println(
+            colorize(
+                Color.YELLOW,
+                """
         Available commands:
         help                              Displays this help
         list                              Display the todo list
         add <todo item description>       Adds the item to the todo list
         done <todo item number>           Marks the item as done
         quit                              Exit the program"""
-))
+            )
+        )
     }
 }
 

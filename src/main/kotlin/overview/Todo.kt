@@ -27,17 +27,19 @@ class Todo {
             "add" -> Continue(add(command))
             "done" -> Continue(done(command))
             "quit" -> Exit
-            else -> Continue(Error(
+            else -> Continue(
+                Error(
                     "I do not understand your command.  " +
-                    "Enter help to display available commands."
-            ))
+                        "Enter help to display available commands."
+                )
+            )
         }
     }
 
     private fun add(command: Command): Output = when (command) {
         is NoArgCommand -> Error(
-        "Add command must have space after add with " +
-            "a description that follows.\nExample: add buy hot dogs."
+            "Add command must have space after add with " +
+                "a description that follows.\nExample: add buy hot dogs."
         )
         is CommandWithArg -> {
             list.add(Item(command.arg, State.TODO))
@@ -51,18 +53,18 @@ class Todo {
                 "a valid index that follows.\nExample: done 3"
         )
         return when (command) {
-        is NoArgCommand -> error
-        is CommandWithArg -> {
-            val number: Int? = command.arg.toIntOrNull()
-            val maybeItem: Item? = number?.let { num -> list.getOrNull(num - 1) }
-            val noop: Output? = maybeItem?.let { item ->
-                item.state = State.DONE
-                Noop
+            is NoArgCommand -> error
+            is CommandWithArg -> {
+                val number: Int? = command.arg.toIntOrNull()
+                val maybeItem: Item? = number?.let { num -> list.getOrNull(num - 1) }
+                val noop: Output? = maybeItem?.let { item ->
+                    item.state = State.DONE
+                    Noop
+                }
+                noop ?: error
             }
-            noop ?: error
         }
     }
-}
 
     private fun parse(line: String): Command {
         val parts = line.trim().split(' ', limit = 2)
