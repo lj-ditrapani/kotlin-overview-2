@@ -33,7 +33,7 @@ Develop this overview
 
 Run app
 
-    ./gradlew run
+    ./gradlew run --console=plain
 
 Run tests
 
