@@ -10,11 +10,11 @@ This implements the same todo app as in the
 Building and running an application on the JVM
 ----------------------------------------------
 
-- run `./gradlew assembleDist`;
-  creates zip and tar application files under build/distributions/
+- run `./gradlew distTar` or `./gradlew distZip`;
+  creates tar or zip application files under app/build/distributions/
 - run `./gradlew installDist`;
   unzips files into build/install/kotlin-overview-2.
-  Run as `./build/install/kotlin-overview-2/bin/kotlin-overview-2`.
+  Run as `./app/build/install/app/bin/app`
 
 
 Todo app Notes
@@ -52,15 +52,11 @@ Format code
 
     ./gradlew ktlintFormat
 
-Run static analysis
+Create tar (or zip) application file under app/build/distributions/
 
-    ./gradlew detekt
+    ./gradlew distTar
+    ./gradlew distZip
 
-Create zip and tar application files under build/distributions/
+Install and run artifact
 
-    ./gradlew assembleDist
-
-Package, install and run artifact
-
-    ./gradlew assembleDist installDist && \
-        ./build/install/kotlin-overview-2/bin/kotlin-overview-2
+    ./gradlew installDist && ./app/build/install/app/bin/app
