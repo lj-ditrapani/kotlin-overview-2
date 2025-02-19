@@ -9,6 +9,10 @@ repositories {
     mavenCentral()
 }
 
+tasks.run.configure {
+    standardInput = System.`in`
+}
+
 dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation(libs.junit.jupiter.engine)
