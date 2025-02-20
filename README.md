@@ -37,12 +37,12 @@ Run app
 
 Run tests
 
-    ./gradlew test
+    ./gradlew test -i
 
 Run test coverage report
 
     ./gradlew test jacocoTestReport
-    firefox build/reports/jacoco/test/html/overview/index.html
+    firefox app/build/reports/jacoco/test/html/overview/index.html
 
 Run tests and static analysis
 
