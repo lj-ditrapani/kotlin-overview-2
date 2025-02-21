@@ -1,3 +1,6 @@
+import kotlinx.kover.gradle.plugin.dsl.AggregationType
+import kotlinx.kover.gradle.plugin.dsl.CoverageUnit
+
 plugins {
     alias(libs.plugins.kotlin.jvm)
     application
@@ -42,7 +45,11 @@ kover {
     reports {
         verify {
             rule {
-                minBound(68)
+                bound {
+                    aggregationForGroup = AggregationType.COVERED_PERCENTAGE
+                    coverageUnits = CoverageUnit.BRANCH
+                    minValue = 77
+                }
             }
         }
     }

@@ -1,6 +1,5 @@
 - get linting working
 - add github action
-- move to kotlinx-kover?
 - add blue color
 - print list after each successful add and done command
 - print bye! on quit
