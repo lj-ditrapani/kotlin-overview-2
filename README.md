@@ -41,8 +41,12 @@ Run tests
 
 Run test coverage report
 
-    ./gradlew test jacocoTestReport
-    firefox app/build/reports/jacoco/test/html/overview/index.html
+    ./gradlew koverHtmlReport
+    firefox app/build/reports/kover/html/index.html
+
+Check coverage report
+
+    ./gradlew koverVerify
 
 Run tests and static analysis
 

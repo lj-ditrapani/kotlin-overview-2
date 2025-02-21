@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.kotlin.jvm)
     application
-    jacoco
+    id("org.jetbrains.kotlinx.kover").version("0.9.1")
     id("org.jlleitschuh.gradle.ktlint").version("12.1.2")
 }
 
@@ -36,4 +36,14 @@ tasks.named<Test>("test") {
 
 ktlint {
     version.set("1.5.0")
+}
+
+kover {
+    reports {
+        verify {
+            rule {
+                minBound(68)
+            }
+        }
+    }
 }
