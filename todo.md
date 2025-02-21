@@ -1,4 +1,3 @@
-- add blue color
 - print list after each successful add and done command
 - print bye! on quit
 - add more notes to README; see typescript-overview notes

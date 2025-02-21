@@ -1,10 +1,10 @@
 package overview
 
 enum class Color {
-    BLUE,
-    GREEN,
     RED,
+    GREEN,
     YELLOW,
+    BLUE,
 }
 
 fun colorize(
@@ -13,10 +13,10 @@ fun colorize(
 ): String {
     val code =
         when (color) {
-            Color.BLUE -> "94"
-            Color.GREEN -> "32"
             Color.RED -> "31"
+            Color.GREEN -> "32"
             Color.YELLOW -> "33"
+            Color.BLUE -> "34"
         }
     return "\u001B[${code}m${message}\u001B[0m"
 }
