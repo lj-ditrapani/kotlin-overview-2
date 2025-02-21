@@ -1,0 +1,6 @@
+*
+!gradle.properties
+!settings.gradle.kts
+!.editorconfig
+!gradle/libs.versions.toml
+!app

@@ -1,5 +1,3 @@
-- get linting working
-- add github action
 - add blue color
 - print list after each successful add and done command
 - print bye! on quit
