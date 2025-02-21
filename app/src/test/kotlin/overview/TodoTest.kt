@@ -36,7 +36,7 @@ class TodoTest {
             todo.dispatch("add eat lunch")
             val expected =
                 listOf(
-                    Item("wash car", State.TODO),
+                    Item("wash ca", State.TODO),
                     Item("eat lunch", State.TODO),
                 )
             resultIsList(expected, todo.dispatch("list"))
