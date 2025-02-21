@@ -3,11 +3,17 @@ package overview
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-fun resultIsList(items: List<Item>, result: Result) {
+fun resultIsList(
+    items: List<Item>,
+    result: Result,
+) {
     assertEquals(Continue(ListItems(items.toMutableList())), result)
 }
 
-fun resultIsError(err: String, result: Result) {
+fun resultIsError(
+    err: String,
+    result: Result,
+) {
     assertEquals(Continue(Error(err)), result)
 }
 
@@ -21,17 +27,18 @@ class TodoTest {
         assertEquals(Continue(Help), result)
     }
 
-    class `add command` {
+    class AddCommand {
         @Test fun `adds an item to the list`() {
             val todo = Todo()
             resultIsList(listOf<Item>(), todo.dispatch("list"))
             todo.dispatch("add wash car")
             resultIsList(listOf(Item("wash car", State.TODO)), todo.dispatch("list"))
             todo.dispatch("add eat lunch")
-            val expected = listOf(
-                Item("wash car", State.TODO),
-                Item("eat lunch", State.TODO)
-            )
+            val expected =
+                listOf(
+                    Item("wash car", State.TODO),
+                    Item("eat lunch", State.TODO),
+                )
             resultIsList(expected, todo.dispatch("list"))
         }
 
@@ -67,7 +74,7 @@ class TodoTest {
         }
     }
 
-    class `done command` {
+    class DoneCommand {
         @Test fun `it marks an item as done and returns Result(noop, continue)`() {
             val todo = Todo()
             todo.dispatch("add wash car")
@@ -119,10 +126,11 @@ class TodoTest {
         todo.dispatch("add eat lunch")
         todo.dispatch("done 2")
         val result = todo.dispatch("list")
-        val listItems = listOf(
-            Item("wash car", State.TODO),
-            Item("eat lunch", State.DONE)
-        )
+        val listItems =
+            listOf(
+                Item("wash car", State.TODO),
+                Item("eat lunch", State.DONE),
+            )
         resultIsList(listItems, result)
     }
 
